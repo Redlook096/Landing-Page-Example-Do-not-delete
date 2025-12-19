@@ -2,7 +2,11 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 
-export const Pricing: React.FC = () => {
+interface PricingProps {
+  onAction: () => void;
+}
+
+export const Pricing: React.FC<PricingProps> = ({ onAction }) => {
   return (
     <section id="pricing" className="py-32">
       <div className="max-w-7xl mx-auto px-6">
@@ -13,7 +17,7 @@ export const Pricing: React.FC = () => {
 
         <div className="grid md:grid-cols-3 gap-12 items-start max-w-6xl mx-auto">
           {/* Plan 1 */}
-          <div className="p-10 space-y-8">
+          <div className="p-10 space-y-8 animate-reveal delay-100">
             <h3 className="text-xl font-bold">[BASIC]</h3>
             <div className="flex items-baseline">
                 <span className="text-5xl font-bold tracking-tight">[$XX]</span>
@@ -27,13 +31,13 @@ export const Pricing: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <button className="w-full py-4 border border-[#1d1d1f] rounded-full font-bold hover:bg-[#f5f5f7] transition-all uppercase text-[11px] tracking-widest">
+            <button onClick={onAction} className="w-full py-4 border border-[#1d1d1f] rounded-full font-bold hover:bg-[#f5f5f7] transition-all uppercase text-[11px] tracking-widest">
               [GET STARTED]
             </button>
           </div>
 
           {/* Plan 2 - Featured */}
-          <div className="p-10 bg-[#fbfbfd] rounded-[2.5rem] border border-gray-100 shadow-xl space-y-8 relative scale-105">
+          <div className="p-10 bg-[#fbfbfd] rounded-[2.5rem] border border-gray-100 shadow-xl space-y-8 relative scale-105 animate-reveal delay-200">
             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#1d1d1f] text-white px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
                 [RECOMMENDED]
             </div>
@@ -50,13 +54,13 @@ export const Pricing: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <button className="w-full py-4 bg-[#1d1d1f] text-white rounded-full font-bold hover:bg-black transition-all uppercase text-[11px] tracking-widest">
+            <button onClick={onAction} className="w-full py-4 bg-[#1d1d1f] text-white rounded-full font-bold hover:bg-black transition-all uppercase text-[11px] tracking-widest">
               [UPGRADE NOW]
             </button>
           </div>
 
           {/* Plan 3 */}
-          <div className="p-10 space-y-8">
+          <div className="p-10 space-y-8 animate-reveal delay-300">
             <h3 className="text-xl font-bold">[ENTERPRISE]</h3>
             <div className="flex items-baseline">
                 <span className="text-5xl font-bold tracking-tight">[$XX]</span>
@@ -70,7 +74,7 @@ export const Pricing: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <button className="w-full py-4 border border-[#1d1d1f] rounded-full font-bold hover:bg-[#f5f5f7] transition-all uppercase text-[11px] tracking-widest">
+            <button onClick={onAction} className="w-full py-4 border border-[#1d1d1f] rounded-full font-bold hover:bg-[#f5f5f7] transition-all uppercase text-[11px] tracking-widest">
               [CONTACT SALES]
             </button>
           </div>
